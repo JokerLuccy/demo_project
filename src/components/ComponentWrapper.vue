@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="handleClick">
     <component
       class="component"
       :is="config.component"
@@ -13,8 +13,10 @@
 <script>
 import { getStyle } from "../utils/style";
 import runAnimation from "../utils/runAnimation";
+import { mixins } from "../utils/events";
 export default {
   name: "ComponentWrapper",
+  mixins: [mixins],
   props: {
     config: {
       type: Object,
@@ -23,6 +25,12 @@ export default {
   },
   methods: {
     getStyle,
+    handleClick() {
+      const events = this.config.events;
+      Object.keys(events).forEach((event) => {
+        this[event](events[event]);
+      });
+    },
   },
   mounted() {
     runAnimation(this.$el, this.config.animations);
