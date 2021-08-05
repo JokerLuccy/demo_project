@@ -19,7 +19,8 @@ export function getStyle(style, filter = []) {
         result[key] = style[key];
 
         if (needUnit.includes(key)) {
-          result[key] += "px";
+          // 再次出适配
+          result[key] = result[key] / 16 + "rem";
         }
       } else {
         result.transform = key + "(" + style[key] + "deg)";

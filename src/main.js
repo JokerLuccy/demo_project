@@ -5,6 +5,7 @@ import store from "./store";
 import "@/styles/animate.css";
 import "@/styles/reset.css";
 import "@/custom-components";
+import "@/utils/rem.js";
 Vue.config.productionTip = false;
 
 new Vue({

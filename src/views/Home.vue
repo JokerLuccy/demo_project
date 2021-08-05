@@ -3,10 +3,8 @@
     <div
       class="canvas"
       :style="{
-        width:
-          changeStyleWithScale(canvasStyle.width, canvasStyle.scale) + 'px',
-        height:
-          changeStyleWithScale(canvasStyle.height, canvasStyle.scale) + 'px',
+        width: changeStyleWithScale(canvasStyle.width, canvasStyle.scale),
+        height: changeStyleWithScale(canvasStyle.height, canvasStyle.scale),
       }"
     >
       <ComponentWrapper
@@ -26,14 +24,11 @@ export default {
   components: { ComponentWrapper },
   data() {
     return {
-      canvasStyle: { width: "375", height: "740", scale: 100 },
+      canvasStyle: { width: "375", height: "812", scale: 100 },
       componentData: [
         {
           animations: [],
-          events: {
-            click:
-              "const arr = [1, 2, 3, 4, 5, 6]\r\narr.forEach(v => {\r\n    console.log(v)\r\n})",
-          },
+          events: {},
           groupStyle: {},
           isLock: false,
           component: "rect-shape",
@@ -43,8 +38,8 @@ export default {
           style: {
             rotate: 0,
             opacity: 1,
-            width: 200,
-            height: 200,
+            width: "187.5",
+            height: "406",
             fontSize: 14,
             fontWeight: 500,
             lineHeight: "",
@@ -53,17 +48,18 @@ export default {
             color: "",
             borderColor: "#000",
             borderWidth: 1,
-            backgroundColor: "#AB2525",
+            backgroundColor: "#A42121",
             borderStyle: "solid",
             verticalAlign: "middle",
-            top: 2,
-            left: 1,
+            top: "0",
+            left: "0",
           },
-          id: 0,
+          id: 1,
         },
       ],
     };
   },
+
   methods: {
     changeStyleWithScale,
   },
@@ -75,7 +71,7 @@ export default {
   height: 100%;
   overflow: auto;
   .canvas {
-    background: #fff;
+    background: skyblue;
     position: relative;
     margin: auto;
   }

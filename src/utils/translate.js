@@ -128,5 +128,5 @@ export function mod360(deg) {
 }
 
 export function changeStyleWithScale(value, scale) {
-  return (value * parseInt(scale)) / 100;
+  return (value * parseInt(scale)) / 100 / 16 + "rem";
 }
