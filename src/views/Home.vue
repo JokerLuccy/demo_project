@@ -19,6 +19,7 @@
 <script>
 import { changeStyleWithScale } from "../utils/translate";
 import ComponentWrapper from "../components/ComponentWrapper";
+
 export default {
   name: "Home",
   components: { ComponentWrapper },
@@ -31,30 +32,25 @@ export default {
           events: {},
           groupStyle: {},
           isLock: false,
-          component: "rect-shape",
-          label: "矩形",
-          propValue: "&nbsp;",
-          icon: "juxing",
+          component: "v-title",
+          label: "标题",
+          propValue:
+            '{"left":"iconfanhui","center":"标题","right":"iconxiaoxitongzhi"}',
+          icon: "iconwenzi",
+          data: { config: { position: "center" } },
+          callBackEvents: ["vTitleLeftClick", "vTitleRightClick"],
           style: {
             rotate: 0,
             opacity: 1,
-            width: "187.5",
-            height: "406",
+            width: 375,
+            height: 40,
             fontSize: 14,
-            fontWeight: 500,
-            lineHeight: "",
-            letterSpacing: 0,
-            textAlign: "center",
-            color: "",
-            borderColor: "#000",
-            borderWidth: 1,
-            backgroundColor: "#A42121",
-            borderStyle: "solid",
-            verticalAlign: "middle",
-            top: "0",
-            left: "0",
+            backgroundColor: "#1B2238",
+            color: "#E9ECF0",
+            top: 3,
+            left: -1,
           },
-          id: 1,
+          id: 0,
         },
       ],
     };
@@ -71,7 +67,7 @@ export default {
   height: 100%;
   overflow: auto;
   .canvas {
-    background: skyblue;
+    background: #fff;
     position: relative;
     margin: auto;
   }

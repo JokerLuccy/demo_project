@@ -1,11 +1,11 @@
 <template>
   <div @click="handleClick">
     <component
-      class="component"
       :is="config.component"
-      :style="getStyle(config.style)"
-      :propValue="config.propValue"
       :element="config"
+      :propValue="config.propValue"
+      :style="getStyle(config.style)"
+      class="component"
     />
   </div>
 </template>
@@ -14,6 +14,7 @@
 import { getStyle } from "../utils/style";
 import runAnimation from "../utils/runAnimation";
 import { mixins } from "../utils/events";
+import vm from "@/utils/eventBus";
 export default {
   name: "ComponentWrapper",
   mixins: [mixins],
@@ -23,6 +24,7 @@ export default {
       require: true,
     },
   },
+
   methods: {
     getStyle,
     handleClick() {
@@ -31,9 +33,17 @@ export default {
         this[event](events[event]);
       });
     },
+    handleLeftClick() {
+      console.log("左侧图标触发");
+    },
+    handleRightClick() {
+      console.log("右侧图标触发");
+    },
   },
   mounted() {
     runAnimation(this.$el, this.config.animations);
+    vm.$on("vTitleLeftClick", this.handleLeftClick);
+    vm.$on("vTitleRightClick", this.handleRightClick);
   },
 };
 </script>

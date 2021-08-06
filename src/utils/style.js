@@ -17,10 +17,19 @@ export function getStyle(style, filter = []) {
     if (!filter.includes(key)) {
       if (key !== "rotate") {
         result[key] = style[key];
-
         if (needUnit.includes(key)) {
           // 再次出适配
           result[key] = result[key] / 16 + "rem";
+        }
+        // 处理 boxShadow这种写法
+        if (key === "boxShadow") {
+          const arr = result[key].split("px");
+          arr.forEach((v, index) => {
+            if (index < arr.length - 1) {
+              arr[index] = v / 16 + "rem";
+            }
+          });
+          result[key] = arr.join(" ");
         }
       } else {
         result.transform = key + "(" + style[key] + "deg)";

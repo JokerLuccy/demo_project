@@ -6,6 +6,7 @@ import "@/styles/animate.css";
 import "@/styles/reset.css";
 import "@/custom-components";
 import "@/utils/rem.js";
+import "@/assets/iconfont/iconfont.css";
 Vue.config.productionTip = false;
 
 new Vue({

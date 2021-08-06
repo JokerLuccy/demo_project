@@ -1,12 +1,16 @@
 import Vue from "vue";
 // 组件名和文件名保持一致
 const components = [
-  // "Picture",
+  "Picture",
   "VText",
-  // "VButton",
-  // "Group",
+  "VButton",
+  "Group",
   "RectShape",
   // "VInput",
+  "VSwitch",
+  "VSwitchText",
+  "VIcon",
+  "VTitle",
 ];
 
 components.forEach((key) => {
